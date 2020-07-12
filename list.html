@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue JS - List</title>
+  </head>
+  <body>
+    <div id="root">
+      <ul>
+        <li v-for="name in names" v-text="name"></li>
+      </ul>
+      <input id="input" type="text" />
+      <button id="button">Add Name</button>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: '#root',
+        data: {
+          names: ['Joe', 'Mary', 'Jane', 'Jack'],
+        },
+
+        mounted() {
+          document.querySelector('#button').addEventListener('click', () => {
+            let name = document.querySelector('#input').value
+            app.names.push(name)
+            name.value = ''
+          })
+        },
+      })
+    </script>
+
+    <hr style="margin-top: 200px;" />
+    <pre>
+      Usage: CNN 
+      2 - List ( Sử dụng v-for: vòng lặp + v-text) 
+    </pre>
+  </body>
+</html>

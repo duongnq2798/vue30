@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue JS - Data binding</title>
+  </head>
+  <body>
+    <div id="root">
+      <input type="text" id="input" v-model="message" />
+      <p>The value of the input is: {{ message }}</p>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#root',
+        data: {
+          message: 'Hello World',
+        },
+      })
+    </script>
+
+    <hr style="margin-top: 200px;" />
+    <pre>
+      Usage: CNN 
+      1 - Data Binding
+    </pre>
+  </body>
+</html>
