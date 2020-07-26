@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue JS</title>
+    <style>
+      li{
+        cursor: pointer;
+      }
+      .strikeout{
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
     <div id="shopping-list">
@@ -18,15 +26,17 @@
         <input
           v-model="newItem"
           type="text"
-          placeholder="Add Item ..."
-          @keyup.enter="saveItem"
-        />
-        <button @click="saveItem">
+          placeholder=" Add Item ..."
+          @keyup.enter="saveItem"></input>
+        <button @click="saveItem" :disabled="newItem.length === 0">
           Save items
         </button>
       </div>
       <ul>
-        <li v-for="item in items">{{ item }}</li>
+        <li v-for="item in items"
+        :class="{strikeout: item.purchased}"
+        @click="togglePurchased(item)"
+        >{{ item.label }}</li>
       </ul>
       <p v-if="items.length === 0">Nice job! You've Bought all you items.</p>
     </div>
@@ -39,9 +49,18 @@
           header: 'shopping list app',
           newItem: '',
           items: [
-            // '10 party hats',
-            // '2 board games',
-            // '20 cups'
+            {
+              label: '10 party hats',
+              purchased: false,
+            },
+            {
+              label: '2 board games',
+              purchased: true,
+            },
+            {
+              label: '20 cups',
+              purchased: false
+            }
           ],
         },
 
@@ -52,8 +71,11 @@
           },
           changeState: function (newState) {
             this.state = newState
-            this.newItem = ' '
+            this.newItem = ''
           },
+          togglePurchased: function(item) {
+            item.purchased = !item.purchased;
+          }
         },
       })
     </script>
