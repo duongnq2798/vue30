@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+    </div>
+
+    <script type="text-x-template">
+      <button @click="count++"> {{count}} </button>
+    </script>
+
+    <!-- javascript -->
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
